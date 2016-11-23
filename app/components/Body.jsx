@@ -4,31 +4,31 @@ import GoalNumber from './GoalNumber'
 import GoalHabit from './GoalHabit'
 
 export default class Body extends Component {
-
+  
   render() {
     return (
 
           <div className="container">
             <div className="col-xs-6 col-md-4">
-                <GoalList projName="One" />
+                <GoalList projName="Alpha" />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalList projName="Two" />
+                <GoalList projName="Beta" />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalList projName="Three"/>
+                <GoalList projName="Gamma"/>
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalHabit projName="Flossing" times="231" />
+                <GoalHabit projName="Habit A" times="231" />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalHabit projName="Pick up an area" times="5" />
+                <GoalHabit projName="Habit B" times="5" />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalNumber projName="Arbbitrary Number Goal" target="203" current="195" />
+                <GoalNumber projName="Arbitrary Number" target="203" current="195" />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalNumber projName="Savings" target="$15,000" current="$11,950" />
+                <GoalNumber projName="Big Trip Fund" target="$15,000" current="$11,950" />
               </div>
           </div>    )
   }

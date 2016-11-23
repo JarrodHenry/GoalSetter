@@ -7,11 +7,15 @@ export default class GoalNumber extends Component {
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleEdit = this.handleEdit.bind(this);
     }
     handleChange(event) {
       this.setState({value: event.target.value});
     }
 
+    handleEdit(event) {
+      alert('The edit button was clicked');
+    }
     handleSubmit(event) {
         alert('A value was submitted: ' + this.state.value);
         // report to server
@@ -24,7 +28,7 @@ export default class GoalNumber extends Component {
         <div className="panel panel-default">
 
           <div className="panel-heading">
-            <h2>{this.props.projName}</h2>
+            <h2>{this.props.projName}<span onClick={this.handleEdit} className="glyphicon glyphicon-edit pull-right"></span></h2>
           </div>
 
           <h3>Target: {this.props.target}</h3>
