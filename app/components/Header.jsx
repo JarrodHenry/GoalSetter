@@ -14,16 +14,24 @@ export default class Header extends Component {
                   <span className="icon-bar"></span>
                   <span className="icon-bar"></span>
                 </button>
+
                 <a className="navbar-brand" href="#">Goal Setter</a>
               </div>
+
               <div id="navbar" className="navbar-collapse collapse">
+
                 <ul className="nav navbar-nav">
                   <li className="active"><a href="#">Overview</a></li>
                   <li><a href="#">About</a></li>
-                </ul>
 
+                </ul>
+                <button className="btn btn-default btn-lg navbar-right">
+                  <span className="glyphicon glyphicon-refresh"></span>
+                </button>
               </div>
+
             </div>
+
           </nav>
           </div>
         )
