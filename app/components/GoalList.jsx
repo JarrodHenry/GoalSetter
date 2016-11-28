@@ -1,16 +1,38 @@
 import React, { Component } from 'react'
 
-export default class GoalList extends Component {
+export class GoalListItem extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
+    return(
+      <li className="list-group-item">
+      <div className="checkbox checkbox-inline">
+      <label><input type="checkbox" className="checkbox checkbox-inline" onClick={this.handleClick} />{this.props.itemName}</label>
+    </div>
+  </li>
+    )
+  }
+}
+
+export class GoalList extends Component {
 
   constructor(props) {
     super(props);
 
     this.handleEdit = this.handleEdit.bind(this);
-
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleEdit(event) {
     alert('The edit button was clicked');
+  }
+
+  handleClick(event, number) {
+    console.log('clicked checkbox');
+    console.log(event);
   }
 
   render() {
@@ -23,11 +45,12 @@ export default class GoalList extends Component {
   </div>
 
   <ul className="list-group">
-          <li className="list-group-item"><div className="checkbox checkbox-inline"><label><input type="checkbox" className="checkbox checkbox-inline" />Item one</label></div></li>
-          <li className="list-group-item"><div className="checkbox checkbox-inline"><label><input type="checkbox" className="checkbox checkbox-inline" />Item two</label></div></li>
-          <li className="list-group-item"><div className="checkbox checkbox-inline"><label><input type="checkbox" className="checkbox checkbox-inline" />Item three</label></div></li>
-          <li className="list-group-item"><div className="checkbox checkbox-inline"><label><input type="checkbox" className="checkbox checkbox-inline" />Item four</label></div></li>
-          <li className="list-group-item"><div className="checkbox checkbox-inline"><label><input type="checkbox" className="checkbox checkbox-inline" />Item five</label></div></li>
+        <GoalListItem itemName="Item one" />
+        <GoalListItem itemName="Item two" />
+        <GoalListItem itemName="Item three" />
+        <GoalListItem itemName="Item four" />
+        <GoalListItem itemName="Item five" />
+
         </ul>
       </div>
     </div> )

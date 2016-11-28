@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 
 export default class Header extends Component {
 
+    constructor(props) {
+      super(props);
+      this.refreshClicked = this.refreshClicked.bind(this);
+    }
+
+    refreshClicked() {
+      alert('Refresh button clicked');
+    }
+
     render() {
         return (
         <div>
@@ -19,14 +28,12 @@ export default class Header extends Component {
               </div>
 
               <div id="navbar" className="navbar-collapse collapse">
-
                 <ul className="nav navbar-nav">
                   <li className="active"><a href="#">Overview</a></li>
                   <li><a href="#">About</a></li>
-
                 </ul>
                 <button className="btn btn-default btn-lg navbar-right">
-                  <span className="glyphicon glyphicon-refresh"></span>
+                  <span onClick={this.refreshClicked} className="glyphicon glyphicon-refresh"></span>
                 </button>
               </div>
 
