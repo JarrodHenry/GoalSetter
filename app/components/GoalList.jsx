@@ -4,13 +4,24 @@ export class GoalListItem extends Component {
 
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+
   }
-  
+
+  handleClick(event) {
+    this.setState({checked: !this.state.checked});
+  }
+
+componentWillMount(props) {
+
+  this.setState({checked: this.props.checked});
+
+}
   render() {
     return(
       <li className="list-group-item">
-      <div className="checkbox checkbox-inline">
-      <label><input type="checkbox" className="checkbox checkbox-inline" onClick={this.handleClick} />{this.props.itemName}</label>
+      <div id={this.props.id} className="checkbox checkbox-inline">
+      <label><input type="checkbox" className="checkbox checkbox-inline" checked={this.state.checked} onChange={this.handleClick} />{this.props.itemName}</label>
     </div>
   </li>
     )
@@ -23,20 +34,23 @@ export class GoalList extends Component {
     super(props);
 
     this.handleEdit = this.handleEdit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+
   }
 
+    componentWillMount(props) {
+
+      var arItems = [
+        {name: 'item one', checked: false}, {name: 'item two', checked: false}, {name: 'item three', checked: false},{name: 'item four', checked: false},{name: 'item five', checked: false}];
+
+
+      this.setState({ arItems });
+    }
   handleEdit(event) {
     alert('The edit button was clicked');
   }
 
-  handleClick(event, number) {
-    console.log('clicked checkbox');
-    console.log(event);
-  }
-
   render() {
-    return (
+        return (
       <div>
         <div className="panel panel-default">
 
@@ -45,13 +59,12 @@ export class GoalList extends Component {
   </div>
 
   <ul className="list-group">
-        <GoalListItem itemName="Item one" />
-        <GoalListItem itemName="Item two" />
-        <GoalListItem itemName="Item three" />
-        <GoalListItem itemName="Item four" />
-        <GoalListItem itemName="Item five" />
-
-        </ul>
+        {
+          this.state.arItems.map((arItem, index)=>(
+            <GoalListItem itemName={arItem.name} checked={arItem.checked} key={this.props.projName+index} id={this.props.projName+index} />
+          ))
+        }
+      </ul>
       </div>
     </div> )
   }
