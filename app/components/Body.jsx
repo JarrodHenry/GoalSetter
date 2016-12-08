@@ -12,8 +12,6 @@ export default class Body extends Component {
   render() {
     return (
         <div className="container">
-
-
             <div className="col-xs-6 col-md-4">
                 <GoalList projName="Alpha" />
               </div>
@@ -24,10 +22,10 @@ export default class Body extends Component {
                 <GoalList projName="Gamma"/>
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalHabit projName="Habit A" times="0" />
+                <GoalHabit />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalHabit projName="Habit B" times="5" />
+                <GoalHabit />
               </div>
               <div className="col-xs-6 col-md-4">
                 <GoalNumber projName="Arbitrary Number" target="200" current="195" />

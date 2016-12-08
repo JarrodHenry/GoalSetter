@@ -39,11 +39,21 @@ export class GoalList extends Component {
 
     componentWillMount(props) {
 
-      var arItems = [
-        {name: 'item one', checked: false}, {name: 'item two', checked: false}, {name: 'item three', checked: false},{name: 'item four', checked: false},{name: 'item five', checked: false}];
+      var result = [];
+      //var arItems = [
+      //  {name: 'item one', itemChecked: false}, {name: 'item two', itemChecked: false}, {name: 'item three', itemChecked: false},{name: 'item four', itemChecked: false},{name: 'item five', itemChecked: false}];
 
+        var arItems =[];
+        fetch('http://localhost:2681/api/goallist').then(function(response) {
+        	// Convert to JSON
+        	return response.json();
+        }).then( (response) => {
+          this.setState({arItems: response})
+
+        });
 
       this.setState({ arItems });
+      //this.setState({ result });
     }
   handleEdit(event) {
     alert('The edit button was clicked');
@@ -61,7 +71,7 @@ export class GoalList extends Component {
   <ul className="list-group">
         {
           this.state.arItems.map((arItem, index)=>(
-            <GoalListItem itemName={arItem.name} checked={arItem.checked} key={this.props.projName+index} id={this.props.projName+index} />
+            <GoalListItem itemName={arItem.name} checked={arItem.itemChecked} key={this.props.projName+index} id={this.props.projName+index} />
           ))
         }
       </ul>

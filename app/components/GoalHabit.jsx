@@ -8,7 +8,8 @@ export default class GoalHabit extends Component {
     this.didClick = this.didClick.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
 
-    this.state = {times: this.props.times};
+  //  this.state = {times: this.props.times};
+  this.state ={};
   }
 
   didNotClick(event) {
@@ -23,13 +24,25 @@ export default class GoalHabit extends Component {
     this.setState({times: Number(this.state.times)+1});
     //report to server
   }
+  componentWillMount(props) {
+    fetch('http://localhost:2681/api/goalhabit').then(function(response) {
+      // Convert to JSON
+      return response.json();
+    }).then( (response) => {
+      console.log("logging habit");
+      console.log(response);
+      this.setState({times: response.numberTimes, name: response.name});
+
+    });
+
+  }
   render() {
     return (
       <div>
         <div className="panel panel-default">
 
   <div className="panel-heading">
-    <h2>{this.props.projName} - {this.state.times}x <span onClick={this.handleEdit} className="glyphicon glyphicon-edit pull-right"></span></h2>
+    <h2>{this.state.name} - {this.state.times}x <span onClick={this.handleEdit} className="glyphicon glyphicon-edit pull-right"></span></h2>
 
   </div>
       <div className="btn-group btn-group-justified" role="group">
