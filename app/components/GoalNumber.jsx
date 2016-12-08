@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 export default class GoalNumber extends Component {
   constructor(props) {
       super(props);
-      this.state = {value: this.props.current};
+      this.state = {};
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleEdit = this.handleEdit.bind(this);
     }
     handleChange(event) {
-      this.setState({value: event.target.value});
+      this.setState({current: event.target.value});
     }
 
     handleEdit(event) {
@@ -22,17 +22,26 @@ export default class GoalNumber extends Component {
         event.preventDefault();
       }
 
+   componentWillMount(props) {
+     fetch('http://localhost:2681/api/goalnum').then(function(response) {
+      // Convert to JSON
+      return response.json();
+     }).then( (response) => {
+       this.setState({target: response.target, current: response.current, projName: response.name})
+
+     });
+   }
   render() {
     return (
       <div>
         <div className="panel panel-default">
 
           <div className="panel-heading">
-            <h2>{this.props.projName}<span onClick={this.handleEdit} className="glyphicon glyphicon-edit pull-right"></span></h2>
+            <h2>{this.state.projName}<span onClick={this.handleEdit} className="glyphicon glyphicon-edit pull-right"></span></h2>
           </div>
 
-          <h3>Target: {this.props.target}</h3>
-          <h3>Current: {this.state.value}</h3>
+          <h3>Target: {this.state.target}</h3>
+          <h3>Current: {this.state.current}</h3>
           <form onSubmit={this.handleSubmit}>
             <label>
               <p>Log New Value: </p>
