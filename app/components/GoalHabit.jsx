@@ -29,8 +29,6 @@ export default class GoalHabit extends Component {
       // Convert to JSON
       return response.json();
     }).then( (response) => {
-      console.log("logging habit");
-      console.log(response);
       this.setState({times: response.numberTimes, name: response.name});
 
     });

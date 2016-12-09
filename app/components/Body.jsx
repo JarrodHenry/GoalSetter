@@ -13,25 +13,25 @@ export default class Body extends Component {
     return (
         <div className="container">
             <div className="col-xs-6 col-md-4">
-                <GoalList projName="Alpha" />
+                <GoalList />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalList projName="Beta" />
+                <GoalList />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalList projName="Gamma"/>
-              </div>
-              <div className="col-xs-6 col-md-4">
-                <GoalHabit />
+                <GoalList />
               </div>
               <div className="col-xs-6 col-md-4">
                 <GoalHabit />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalNumber projName="Arbitrary Number" target="200" current="195" />
+                <GoalHabit />
               </div>
               <div className="col-xs-6 col-md-4">
-                <GoalNumber projName="Big Trip Fund" target="$15,000" current="$11,950" />
+                <GoalNumber />
+              </div>
+              <div className="col-xs-6 col-md-4">
+                <GoalNumber />
               </div>
               <div className="col-xs-6 col-md-4">
                 <AddCardComponent />
