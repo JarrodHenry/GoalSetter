@@ -8,6 +8,7 @@ export default class GoalNumber extends Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleEdit = this.handleEdit.bind(this);
+      this.URL = "http://localhost:2681/api/goalnum";
     }
     handleChange(event) {
       this.setState({current: event.target.value});
@@ -23,7 +24,7 @@ export default class GoalNumber extends Component {
       }
 
    componentWillMount(props) {
-     fetch('http://localhost:2681/api/goalnum').then(function(response) {
+     fetch(this.URL).then(function(response) {
       // Convert to JSON
       return response.json();
      }).then( (response) => {

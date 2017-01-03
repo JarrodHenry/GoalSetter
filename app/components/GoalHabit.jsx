@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 
 export default class GoalHabit extends Component {
 
+
   constructor(props) {
     super(props)
     this.didNotClick = this.didNotClick.bind(this);
     this.didClick = this.didClick.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+
+    this.URL='http://localhost:2681/api/goalhabit';
 
   //  this.state = {times: this.props.times};
   this.state ={};
@@ -25,7 +28,7 @@ export default class GoalHabit extends Component {
     //report to server
   }
   componentWillMount(props) {
-    fetch('http://localhost:2681/api/goalhabit').then(function(response) {
+    fetch(this.URL).then(function(response) {
       // Convert to JSON
       return response.json();
     }).then( (response) => {

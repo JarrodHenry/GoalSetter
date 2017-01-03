@@ -34,14 +34,14 @@ export class GoalList extends Component {
     super(props);
 
     this.handleEdit = this.handleEdit.bind(this);
-
+    this.URL = "http://localhost:2681/api/goallist";
   }
 
     componentWillMount(props) {
 
       var result = [];
       var arItems =[];
-        fetch('http://localhost:2681/api/goallist').then(function(response) {
+        fetch(this.URL).then(function(response) {
         	// Convert to JSON
         	return response.json();
         }).then( (response) => {
