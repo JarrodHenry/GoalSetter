@@ -8,7 +8,7 @@ export default class Header extends Component {
     }
 
     refreshClicked() {
-      alert('Refresh button clicked');
+      window.location.reload();
     }
 
     render() {
