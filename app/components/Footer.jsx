@@ -6,7 +6,7 @@ export default class Footer extends Component {
         return (
             <div>
               <hr />
-              <p className="text-muted">Jarrod Henry 2017</p>
+              <p className="text-muted">Jarrod Henry / <a href="http://www.sftsrc.com">SoftSource </a>2017</p>
             </div>
         )
     }

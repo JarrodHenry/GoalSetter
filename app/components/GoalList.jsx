@@ -42,15 +42,13 @@ export class GoalList extends Component {
       var result = [];
       var arItems =[];
         fetch(this.URL).then(function(response) {
-        	// Convert to JSON
         	return response.json();
         }).then( (response) => {
           this.setState({arItems: response, name: response[0].projName})
-
         });
 
       this.setState({ arItems });
-      //this.setState({ result });
+
     }
   handleEdit(event) {
     alert('The edit button was clicked');

@@ -18,7 +18,7 @@ export default class GoalNumber extends Component {
       alert('The edit button was clicked');
     }
     handleSubmit(event) {
-        alert('A value was submitted: ' + this.state.value);
+        alert('A value was submitted: ' + this.state.current);
         // report to server
         event.preventDefault();
       }
