@@ -8,7 +8,8 @@ export default class Header extends Component {
     }
 
     refreshClicked() {
-      window.location.reload();
+      
+      window.location.reload(true);
     }
 
     render() {
@@ -34,8 +35,8 @@ export default class Header extends Component {
                 </ul>
 
                 <div className="nav navbar-nav navbar-right">
-                <button className="btn btn-default btn-lg">
-                  <span onClick={this.refreshClicked} className="glyphicon glyphicon-refresh"></span>
+                <button className="btn btn-default btn-lg"  onClick={this.refreshClicked}>
+                  <span className="glyphicon glyphicon-refresh"></span>
                 </button>
                 </div>
               </div>
