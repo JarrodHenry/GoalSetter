@@ -21,6 +21,7 @@ export default class GoalNumber extends Component {
     //  alert('The edit button was clicked');
     }
     handleSubmit(event) {
+
       // Update using the fetch api to post
       fetch(this.URL,
       {
@@ -31,12 +32,9 @@ export default class GoalNumber extends Component {
         body: "current="+ this.state.current
 
       });
-
-
-
         alert('A value was submitted: ' + this.state.current);
           // And do a pull back to confirm the new value
-          
+
         fetch(this.URL).then(function(response) {
          // Convert to JSON
          return response.json();

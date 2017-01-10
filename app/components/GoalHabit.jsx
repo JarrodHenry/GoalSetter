@@ -18,6 +18,15 @@ export default class GoalHabit extends Component {
   didNotClick(event) {
     this.setState({times: 0});
     // report to server
+    fetch(this.URL,
+    {
+      method: "POST",
+      headers: {
+ "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+},
+      body: "times=0"
+
+    });
   }
 
   handleEdit(event) {
@@ -25,6 +34,15 @@ export default class GoalHabit extends Component {
   }
   didClick(event) {
     this.setState({times: Number(this.state.times)+1});
+    fetch(this.URL,
+    {
+      method: "POST",
+      headers: {
+ "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+},
+      body: "times="+(Number(this.state.times)+1)
+
+    });
     //report to server
   }
   componentWillMount(props) {
