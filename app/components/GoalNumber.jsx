@@ -15,10 +15,35 @@ export default class GoalNumber extends Component {
     }
 
     handleEdit(event) {
-      alert('The edit button was clicked');
+
+
+
+    //  alert('The edit button was clicked');
     }
     handleSubmit(event) {
+      // Update using the fetch api to post
+      fetch(this.URL,
+      {
+        method: "POST",
+        headers: {
+   "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+ },
+        body: "current="+ this.state.current
+
+      });
+
+
+
         alert('A value was submitted: ' + this.state.current);
+          // And do a pull back to confirm the new value
+          
+        fetch(this.URL).then(function(response) {
+         // Convert to JSON
+         return response.json();
+        }).then( (response) => {
+          this.setState({target: response.target, current: response.current, projName: response.name})
+
+        });
         // report to server
         event.preventDefault();
       }

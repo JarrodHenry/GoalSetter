@@ -32,10 +32,14 @@ export default class Header extends Component {
                   <li className="active"><a href="#">Overview</a></li>
                   <li><a href="#">About</a></li>
                 </ul>
-                <button className="btn btn-default btn-lg navbar-right">
+
+                <div className="nav navbar-nav navbar-right">
+                <button className="btn btn-default btn-lg">
                   <span onClick={this.refreshClicked} className="glyphicon glyphicon-refresh"></span>
                 </button>
+                </div>
               </div>
+
 
             </div>
 
